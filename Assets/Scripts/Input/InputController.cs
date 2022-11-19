@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,21 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
     private int _CurrentGiraffeIndex;
 
     private float _MoveValue;
-    private float _RotateValue;
+
+    private GiraffeController Current
+    {
+        get
+        {
+            try
+            {
+                return _Giraffes[_CurrentGiraffeIndex];
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+    }
 
     public void Register(GiraffeController girafeeController)
     {
@@ -40,7 +55,11 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
 
     private void Update()
     {
-        _Giraffes[_CurrentGiraffeIndex].MoveHorizontally(_MoveValue * Time.deltaTime);
+        var current = Current;
+        if (current != null)
+        {
+            Current.MoveHorizontally(_MoveValue * Time.deltaTime);
+        }
     }
 
     void InputActions.IPlayerActions.OnMove(InputAction.CallbackContext context)
@@ -52,7 +71,11 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
     {
         if (context.performed)
         {
-            _Giraffes[_CurrentGiraffeIndex].MoveNeckSelection(context.ReadValue<float>() * Time.deltaTime);
+            var current = Current;
+            if (current != null)
+            {
+                current.MoveNeckSelection(context.ReadValue<float>() * Time.deltaTime);
+            }
         }
     }
 
@@ -60,7 +83,11 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
     {
         if (context.performed)
         {
-            _Giraffes[_CurrentGiraffeIndex].RotateNeckBone(context.ReadValue<float>() * Time.deltaTime);
+            var current = Current;
+            if (current != null)
+            {
+                current.RotateNeckBone(context.ReadValue<float>() * Time.deltaTime);
+            }
         }
     }
 
@@ -77,6 +104,18 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
         if (context.performed)
         {
             _CurrentGiraffeIndex = Mathf.Clamp(_CurrentGiraffeIndex - 1, 0, _Giraffes.Count - 1);
+        }
+    }
+
+    void InputActions.IPlayerActions.OnResetNeck(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            var current = Current;
+            if (current != null)
+            {
+                current.ResetNeck();
+            }
         }
     }
 }

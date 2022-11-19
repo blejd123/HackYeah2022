@@ -71,6 +71,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ResetNeck"",
+                    ""type"": ""Button"",
+                    ""id"": ""d14eb82e-dcdb-406d-8bef-382098762174"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -401,6 +410,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PreviousGiraffe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfe29c5e-5b8a-48c0-8c57-9065aa9bdebb"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetNeck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c86ae76b-ba83-4a8f-8369-8ad517257f0a"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ResetNeck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -993,6 +1024,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_NeckRotation = m_Player.FindAction("NeckRotation", throwIfNotFound: true);
         m_Player_NextGiraffe = m_Player.FindAction("NextGiraffe", throwIfNotFound: true);
         m_Player_PreviousGiraffe = m_Player.FindAction("PreviousGiraffe", throwIfNotFound: true);
+        m_Player_ResetNeck = m_Player.FindAction("ResetNeck", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1069,6 +1101,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_NeckRotation;
     private readonly InputAction m_Player_NextGiraffe;
     private readonly InputAction m_Player_PreviousGiraffe;
+    private readonly InputAction m_Player_ResetNeck;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -1078,6 +1111,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @NeckRotation => m_Wrapper.m_Player_NeckRotation;
         public InputAction @NextGiraffe => m_Wrapper.m_Player_NextGiraffe;
         public InputAction @PreviousGiraffe => m_Wrapper.m_Player_PreviousGiraffe;
+        public InputAction @ResetNeck => m_Wrapper.m_Player_ResetNeck;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1102,6 +1136,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @PreviousGiraffe.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPreviousGiraffe;
                 @PreviousGiraffe.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPreviousGiraffe;
                 @PreviousGiraffe.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPreviousGiraffe;
+                @ResetNeck.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetNeck;
+                @ResetNeck.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetNeck;
+                @ResetNeck.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnResetNeck;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1121,6 +1158,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @PreviousGiraffe.started += instance.OnPreviousGiraffe;
                 @PreviousGiraffe.performed += instance.OnPreviousGiraffe;
                 @PreviousGiraffe.canceled += instance.OnPreviousGiraffe;
+                @ResetNeck.started += instance.OnResetNeck;
+                @ResetNeck.performed += instance.OnResetNeck;
+                @ResetNeck.canceled += instance.OnResetNeck;
             }
         }
     }
@@ -1282,6 +1322,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnNeckRotation(InputAction.CallbackContext context);
         void OnNextGiraffe(InputAction.CallbackContext context);
         void OnPreviousGiraffe(InputAction.CallbackContext context);
+        void OnResetNeck(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

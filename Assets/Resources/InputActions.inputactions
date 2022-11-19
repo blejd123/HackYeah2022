@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ResetNeck",
+                    "type": "Button",
+                    "id": "d14eb82e-dcdb-406d-8bef-382098762174",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -379,6 +388,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PreviousGiraffe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfe29c5e-5b8a-48c0-8c57-9065aa9bdebb",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetNeck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c86ae76b-ba83-4a8f-8369-8ad517257f0a",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetNeck",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
