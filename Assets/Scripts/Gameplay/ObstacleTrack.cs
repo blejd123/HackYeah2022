@@ -1,17 +1,21 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 namespace Gameplay
 {
     public class ObstacleTrack : MonoBehaviour
     {
+        [Inject] private GameplayController _gameplayController;
+        
         [SerializeField] private Transform _start;
         [SerializeField] private Transform _end;
         [SerializeField] private Transform _leftCurtain;
         [SerializeField] private Transform _rightCurtain;
         [SerializeField] private float _curtainMoveDuration;
         [SerializeField] private float _curtainMoveOffset;
+        [SerializeField] private Transform _inputDisableLine;
 
         private Obstacle _currentObstacle;
         private Vector3 _leftCurtainDefaultPosition;
@@ -62,7 +66,15 @@ namespace Gameplay
         
         public Tween AnimateObstacle(float duration)
         {
-            return _currentObstacle.transform.DOMove(_end.position, duration);
+            return _currentObstacle.transform.DOMove(_end.position, duration).SetEase(Ease.Linear).OnUpdate(CheckObstaclePosition);
+        }
+
+        private void CheckObstaclePosition()
+        {
+            if (_currentObstacle.transform.position.z <= _inputDisableLine.position.z)
+            {
+                _gameplayController.DisableInput();
+            }
         }
     }
 }

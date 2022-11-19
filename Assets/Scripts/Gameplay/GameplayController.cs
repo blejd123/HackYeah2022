@@ -15,6 +15,7 @@ namespace Gameplay
         [Inject] private readonly CameraController _cameraController;
         [Inject] private readonly Podium _podium;
         [Inject] private readonly ObstacleTrack _obstacleTrack;
+        [Inject] private readonly InputController _inputController;
 
         [SerializeField] private float _initialObstacleMoveDuration;
         [SerializeField] private float _obstacleMoveDurationChange;
@@ -26,6 +27,7 @@ namespace Gameplay
 
         private void Start()
         {
+            DisableInput();
             _introTimeline.Play();
         }
 
@@ -34,6 +36,19 @@ namespace Gameplay
             StartCoroutine(StartObstaclesFlowCoroutine());
         }
 
+        public void EnableInput()
+        {
+            _inputController.enabled = true;
+        }
+        
+        public void DisableInput()
+        {
+            if (_inputController.enabled)
+            {
+                _inputController.enabled = false;    
+            }
+        }
+        
         private IEnumerator StartObstaclesFlowCoroutine()
         {
             _obstacleTrack.InitCurtains();
@@ -45,6 +60,7 @@ namespace Gameplay
                 var obstacle = _obstacles[Random.Range(0, _obstacles.Count)];
                 _obstacleTrack.SetupObstacle(obstacle);
                 yield return _obstacleTrack.HideCurtains().WaitForCompletion();
+                EnableInput();
                 yield return _obstacleTrack.AnimateObstacle(moveDuration).WaitForCompletion();
                 moveDuration += _obstacleMoveDurationChange;
                 moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
