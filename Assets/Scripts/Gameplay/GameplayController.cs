@@ -1,18 +1,44 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
-public class GameplayController : MonoBehaviour
+namespace Gameplay
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GameplayController : MonoBehaviour
     {
-        
-    }
+        [Inject] private readonly CameraController _cameraController;
 
-    // Update is called once per frame
-    void Update()
-    {
+        private void Start()
+        {
+            StartCoroutine(RunGameplaySequence());
+        }
+
+        private IEnumerator RunGameplaySequence()
+        {
+            yield return ShowCasters();
+            yield return ShowGiraffePreObstacle();
+            yield return ShowObstacle();
+            yield return ShowGiraffe();
+        }
+
+        private IEnumerator ShowCasters()
+        {
+            yield break;
+        }
         
+        private IEnumerator ShowGiraffePreObstacle()
+        {
+            yield break;
+        }
+        
+        private IEnumerator ShowObstacle()
+        {
+            yield break;
+        }
+        
+        private IEnumerator ShowGiraffe()
+        {
+            yield break;
+        }
     }
 }
