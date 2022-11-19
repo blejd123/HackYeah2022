@@ -10,6 +10,7 @@ namespace Installers
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private Podium _podium;
         [SerializeField] private ObstacleTrack _obstacleTrack;
+        [SerializeField] private InputController _InputController;
 
         public override void InstallBindings()
         {
@@ -27,7 +28,7 @@ namespace Installers
 
         private void InstallMateusz()
         {
-            
+            Container.BindInstance(_InputController);
         }
     }
 }
