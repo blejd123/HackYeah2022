@@ -27,6 +27,14 @@ public sealed class GiraffeController : MonoBehaviour
 
     public void RotateNeckBone(float value)
     {
-        _GiraffeNeck.RotateBone(value);
+        if (value > 0.0f)
+        {
+            _GiraffeNeck.RotateRight();
+        }
+
+        if (value < 0.0f)
+        {
+            _GiraffeNeck.RotateLeft();
+        }
     }
 }

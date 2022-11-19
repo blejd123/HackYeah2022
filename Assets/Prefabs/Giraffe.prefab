@@ -77,7 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &504163265032002405
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &2969147227882475688
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &3581802411967415262
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &3604635384106293460
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &3894630240138803245
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &4261403254773857910
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &5781960587167919287
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +925,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &6439200905614941270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,7 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d36214e6989c674eb472859c68c1e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 32
+  _AngleStep: 15
   _NeckElements: []
 --- !u!114 &7953561202059595376
 MonoBehaviour:
@@ -1061,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _GiraffeNeck: {fileID: 7953561202059595383}
-  _MoveMultiplier: 8
+  _MoveMultiplier: 1
 --- !u!114 &7953561202059595377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,7 +1269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _RotationMultiplier: 1
 --- !u!1 &8664164633462860163
 GameObject:
   m_ObjectHideFlags: 0

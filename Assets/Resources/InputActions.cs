@@ -47,9 +47,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""NeckRotation"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""b21849ad-99e3-48bf-a93d-6be697705470"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true

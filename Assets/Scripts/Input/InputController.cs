@@ -41,7 +41,6 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
     private void Update()
     {
         _Giraffes[_CurrentGiraffeIndex].MoveHorizontally(_MoveValue * Time.deltaTime);
-        _Giraffes[_CurrentGiraffeIndex].RotateNeckBone(_RotateValue * Time.deltaTime);
     }
 
     void InputActions.IPlayerActions.OnMove(InputAction.CallbackContext context)
@@ -59,7 +58,10 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
 
     void InputActions.IPlayerActions.OnNeckRotation(InputAction.CallbackContext context)
     {
-        _RotateValue = context.ReadValue<float>();
+        if (context.performed)
+        {
+            _Giraffes[_CurrentGiraffeIndex].RotateNeckBone(context.ReadValue<float>() * Time.deltaTime);
+        }
     }
 
     void InputActions.IPlayerActions.OnNextGiraffe(InputAction.CallbackContext context)

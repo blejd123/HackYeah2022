@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class GiraffeNeck : MonoBehaviour
 {
-    [SerializeField] private float _RotationMultiplier = 1.0f;
+    [SerializeField] private int _AngleStep = 15;
     [SerializeField] private List<GiraffeNeckElement> _NeckElements;
 
     private int _CurrentElementIndex;
@@ -19,9 +19,14 @@ public sealed class GiraffeNeck : MonoBehaviour
         _CurrentElementIndex = Mathf.Clamp(_CurrentElementIndex - 1, 0, _NeckElements.Count - 1);
     }
 
-    public void RotateBone(float value)
+    public void RotateLeft()
     {
-        _NeckElements[_CurrentElementIndex].RotateBone(-value * _RotationMultiplier);
+        _NeckElements[_CurrentElementIndex].RotateBone(_AngleStep);
+    }
+
+    public void RotateRight()
+    {
+        _NeckElements[_CurrentElementIndex].RotateBone(-_AngleStep);
     }
 
     private void Start()
