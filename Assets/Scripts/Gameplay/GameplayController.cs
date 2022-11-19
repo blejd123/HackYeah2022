@@ -7,6 +7,7 @@ namespace Gameplay
     public class GameplayController : MonoBehaviour
     {
         [Inject] private readonly CameraController _cameraController;
+        [Inject] private readonly Podium _podium;
 
         private void Start()
         {
