@@ -28,6 +28,11 @@ namespace Installers
 
         private void InstallMateusz()
         {
+            SignalBusInstaller.Install(Container);
+            Container.DeclareSignal<ObstacleHitGiraffeSignal>();
+
+            Container.BindFactory<Object, Obstacle, Obstacle.Factory>().FromFactory<PrefabFactory<Obstacle>>();
+
             Container.BindInstance(_InputController);
         }
     }

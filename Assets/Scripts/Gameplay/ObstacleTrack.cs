@@ -17,6 +17,8 @@ namespace Gameplay
         [SerializeField] private float _curtainMoveOffset;
         [SerializeField] private Transform _inputDisableLine;
 
+        [Inject] private Obstacle.Factory _ObstacleFactory;
+
         private Obstacle _currentObstacle;
         private Vector3 _leftCurtainDefaultPosition;
         private Vector3 _rightCurtainDefaultPosition;
@@ -32,7 +34,7 @@ namespace Gameplay
             _leftCurtain.position = _leftCurtainDefaultPosition;
             _rightCurtain.position = _rightCurtainDefaultPosition;
         }
-        
+
         public Tween ShowCurtains()
         {
             Sequence sequence = DOTween.Sequence();
@@ -40,7 +42,7 @@ namespace Gameplay
             sequence.Join(_rightCurtain.DOMoveX(_rightCurtainDefaultPosition.x, _curtainMoveDuration));
             return sequence;
         }
-        
+
         public Tween HideCurtains()
         {
             Sequence sequence = DOTween.Sequence();
@@ -48,10 +50,10 @@ namespace Gameplay
             sequence.Join(_rightCurtain.DOMoveX(_rightCurtainDefaultPosition.x + _curtainMoveOffset, _curtainMoveDuration));
             return sequence;
         }
-        
+
         public void SetupObstacle(Obstacle obstaclePrefab)
         {
-            _currentObstacle = Instantiate(obstaclePrefab);
+            _currentObstacle = _ObstacleFactory.Create(obstaclePrefab);
             _currentObstacle.transform.position = _start.position;
         }
 
@@ -63,7 +65,7 @@ namespace Gameplay
                 _currentObstacle = null;
             }
         }
-        
+
         public Tween AnimateObstacle(float duration)
         {
             return _currentObstacle.transform.DOMove(_end.position, duration).SetEase(Ease.Linear).OnUpdate(CheckObstaclePosition);
