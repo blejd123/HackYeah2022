@@ -13,12 +13,12 @@ namespace Installers
 
         private void InstallDarek()
         {
-            
+
         }
 
         private void InstallMateusz()
         {
-            
+
         }
     }
 }
