@@ -8,6 +8,7 @@ namespace Installers
     {
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private Podium _podium;
+        [SerializeField] private ObstacleTrack _obstacleTrack;
 
         public override void InstallBindings()
         {
@@ -19,6 +20,7 @@ namespace Installers
         {
             Container.Bind<CameraController>().FromInstance(_cameraController).AsSingle().NonLazy();
             Container.Bind<Podium>().FromInstance(_podium).AsSingle().NonLazy();
+            Container.Bind<ObstacleTrack>().FromInstance(_obstacleTrack).AsSingle().NonLazy();
         }
 
         private void InstallMateusz()
