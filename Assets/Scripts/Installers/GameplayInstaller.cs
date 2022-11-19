@@ -6,6 +6,7 @@ namespace Installers
 {
     public class GameplayInstaller : MonoInstaller<GameplayInstaller>
     {
+        [SerializeField] private GameplayController _gameplayController;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private Podium _podium;
         [SerializeField] private ObstacleTrack _obstacleTrack;
@@ -18,6 +19,7 @@ namespace Installers
 
         private void InstallDarek()
         {
+            Container.Bind<GameplayController>().FromInstance(_gameplayController).AsSingle().NonLazy();
             Container.Bind<CameraController>().FromInstance(_cameraController).AsSingle().NonLazy();
             Container.Bind<Podium>().FromInstance(_podium).AsSingle().NonLazy();
             Container.Bind<ObstacleTrack>().FromInstance(_obstacleTrack).AsSingle().NonLazy();
