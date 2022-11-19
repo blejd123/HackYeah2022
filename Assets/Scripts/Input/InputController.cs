@@ -79,4 +79,12 @@ public sealed class InputController : MonoBehaviour, InputActions.IPlayerActions
             _CurrentGiraffeIndex = Mathf.Clamp(_CurrentGiraffeIndex - 1, 0, _Giraffes.Count - 1);
         }
     }
+
+    void InputActions.IPlayerActions.OnResetNeck(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _Giraffes[_CurrentGiraffeIndex].ResetNeck();
+        }
+    }
 }

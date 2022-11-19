@@ -432,7 +432,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3836687739741592162}
-  - component: {fileID: 7953561202775604962}
   m_Layer: 0
   m_Name: Bone
   m_TagString: Untagged
@@ -456,18 +455,6 @@ Transform:
   m_Father: {fileID: 1538777421753481486}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7953561202775604962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3581802411967415262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3604635384106293460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +989,7 @@ GameObject:
   - component: {fileID: 7953561202059595383}
   - component: {fileID: 7953561202059595376}
   - component: {fileID: 7953561202059595377}
+  - component: {fileID: 4071550965796249009}
   m_Layer: 0
   m_Name: Giraffe
   m_TagString: Untagged
@@ -1024,7 +1012,7 @@ Transform:
   - {fileID: 1538777421753481486}
   - {fileID: 5440857543990222224}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7953561202059595383
 MonoBehaviour:
@@ -1066,6 +1054,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68cdca5dc1197f4685091b0f032ce93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4071550965796249009
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107190487930008362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7239809228224444975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1235,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5311646238379707980}
-  - component: {fileID: 7953561203609856878}
   m_Layer: 0
   m_Name: Bone.014
   m_TagString: Untagged
@@ -1257,18 +1257,6 @@ Transform:
   m_Father: {fileID: 1435526905464109054}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7953561203609856878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8589489371870308274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8664164633462860163
 GameObject:
   m_ObjectHideFlags: 0

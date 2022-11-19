@@ -37,4 +37,14 @@ public sealed class GiraffeController : MonoBehaviour
             _GiraffeNeck.RotateLeft();
         }
     }
+
+    public void ResetNeck()
+    {
+        if (_GiraffeNeck.IsResetInProgress)
+        {
+            return;
+        }
+
+        StartCoroutine(_GiraffeNeck.ResetNeck());
+    }
 }
