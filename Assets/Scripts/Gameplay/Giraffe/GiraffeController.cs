@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public sealed class GiraffeController : MonoBehaviour
 {
@@ -46,5 +47,9 @@ public sealed class GiraffeController : MonoBehaviour
         }
 
         StartCoroutine(_GiraffeNeck.ResetNeck());
+    }
+
+    public sealed class Factory : PlaceholderFactory<Object, GiraffeController>
+    {
     }
 }

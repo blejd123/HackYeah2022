@@ -32,6 +32,7 @@ namespace Installers
             Container.DeclareSignal<ObstacleHitGiraffeSignal>();
 
             Container.BindFactory<Object, Obstacle, Obstacle.Factory>().FromFactory<PrefabFactory<Obstacle>>();
+            Container.BindFactory<Object, GiraffeController, GiraffeController.Factory>().FromFactory<PrefabFactory<GiraffeController>>();
 
             Container.BindInstance(_InputController);
         }

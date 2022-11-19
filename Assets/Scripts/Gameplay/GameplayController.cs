@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using ModestTree;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -16,6 +17,7 @@ namespace Gameplay
         [Inject] private readonly Podium _podium;
         [Inject] private readonly ObstacleTrack _obstacleTrack;
         [Inject] private readonly InputController _inputController;
+        [Inject] private readonly GiraffeController.Factory _giraffeFactory;
 
         [SerializeField] private float _initialObstacleMoveDuration;
         [SerializeField] private float _obstacleMoveDurationChange;
@@ -24,11 +26,20 @@ namespace Gameplay
         [SerializeField] private PlayableDirector _nextObstacleTimeline;
         [SerializeField] private PlayableDirector _loseTimeline;
         [SerializeField] private List<Obstacle> _obstacles;
+        [SerializeField] private List<GiraffeController> _giraffes;
 
         private void Start()
         {
             DisableInput();
             _introTimeline.Play();
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.f2Key.wasPressedThisFrame)
+            {
+                AddGiraffe();
+            }
         }
 
         public void StartObstaclesFlow()
@@ -40,21 +51,21 @@ namespace Gameplay
         {
             _inputController.enabled = true;
         }
-        
+
         public void DisableInput()
         {
             if (_inputController.enabled)
             {
-                _inputController.enabled = false;    
+                _inputController.enabled = false;
             }
         }
-        
+
         private IEnumerator StartObstaclesFlowCoroutine()
         {
             _obstacleTrack.InitCurtains();
 
             var moveDuration = _initialObstacleMoveDuration;
-            
+
             while (true)
             {
                 var obstacle = _obstacles[Random.Range(0, _obstacles.Count)];
@@ -67,6 +78,12 @@ namespace Gameplay
                 _obstacleTrack.DestroyObstacle();
                 yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
             }
+        }
+
+        private void AddGiraffe()
+        {
+            var giraffe = _giraffes[Random.Range(0, _giraffes.Count)];
+            _giraffeFactory.Create(giraffe);
         }
     }
 }
