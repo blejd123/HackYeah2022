@@ -49,7 +49,6 @@ namespace Gameplay
                 moveDuration += _obstacleMoveDurationChange;
                 moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
                 _obstacleTrack.DestroyObstacle();
-                Debug.Log("fgfg");
                 yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
             }
         }
