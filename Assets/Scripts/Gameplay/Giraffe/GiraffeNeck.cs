@@ -40,7 +40,7 @@ public sealed class GiraffeNeck : MonoBehaviour
             return;
         }
 
-        _NeckElements[_CurrentElementIndex].RotateBone(_AngleStep);
+        _NeckElements[_CurrentElementIndex].RotateBone(-_AngleStep);
     }
 
     public void RotateRight()
@@ -50,7 +50,7 @@ public sealed class GiraffeNeck : MonoBehaviour
             return;
         }
 
-        _NeckElements[_CurrentElementIndex].RotateBone(-_AngleStep);
+        _NeckElements[_CurrentElementIndex].RotateBone(_AngleStep);
     }
 
     private void Start()
