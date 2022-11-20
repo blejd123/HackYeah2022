@@ -13,7 +13,7 @@ namespace UI
         {
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
-            FadeInImmediately();
+            _canvasGroup.alpha = 0.0f;
         }
 
         public void FadeInImmediately()

@@ -19,6 +19,7 @@ namespace Gameplay
         [Inject] private readonly InputController _inputController;
         [Inject] private readonly GiraffeController.Factory _giraffeFactory;
         [Inject] private readonly Audience _audience;
+        [Inject] private readonly SignalBus _signalBus;
 
         [SerializeField] private float _initialObstacleMoveDuration;
         [SerializeField] private float _obstacleMoveDurationChange;
@@ -36,6 +37,16 @@ namespace Gameplay
             _introTimeline.Play();
         }
 
+        private void OnEnable()
+        {
+            _signalBus.Subscribe<ObstacleHitGiraffeSignal>(OnObstacleHit);
+        }
+
+        private void OnDisable()
+        {
+            _signalBus.Unsubscribe<ObstacleHitGiraffeSignal>(OnObstacleHit);
+        }
+        
         private void Update()
         {
             if (Keyboard.current.f2Key.wasPressedThisFrame)
@@ -91,6 +102,12 @@ namespace Gameplay
         {
             var giraffe = _giraffes[Random.Range(0, _giraffes.Count)];
             _giraffeFactory.Create(giraffe);
+        }
+
+        private void OnObstacleHit()
+        {
+            _introTimeline.Stop();
+            _loseTimeline.Play();
         }
     }
 }
