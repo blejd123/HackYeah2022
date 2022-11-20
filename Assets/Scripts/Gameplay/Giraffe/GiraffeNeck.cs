@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Zenject;
 
 public sealed class GiraffeNeck : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public sealed class GiraffeNeck : MonoBehaviour
 
     [SerializeField] private int _AngleStep = 15;
     [SerializeField] private List<GiraffeNeckElement> _NeckElements;
+
+    [Inject] private SignalBus _SignalBus;
 
     private int _CurrentElementIndex;
 
@@ -25,12 +29,16 @@ public sealed class GiraffeNeck : MonoBehaviour
 
     public void MoveUp()
     {
+        _NeckElements[_CurrentElementIndex].Deselect();
         _CurrentElementIndex = Mathf.Clamp(_CurrentElementIndex + 1, 0, _NeckElements.Count - 1);
+        _NeckElements[_CurrentElementIndex].Select();
     }
 
     public void MoveDown()
     {
+        _NeckElements[_CurrentElementIndex].Deselect();
         _CurrentElementIndex = Mathf.Clamp(_CurrentElementIndex - 1, 0, _NeckElements.Count - 1);
+        _NeckElements[_CurrentElementIndex].Select();
     }
 
     public void RotateLeft()
@@ -58,6 +66,22 @@ public sealed class GiraffeNeck : MonoBehaviour
         if (_NeckElements.Count == 0)
         {
             _NeckElements = GetComponentsInChildren<GiraffeNeckElement>().ToList();
+            _NeckElements[_CurrentElementIndex].Select();
         }
+    }
+
+    private void OnEnable()
+    {
+        _SignalBus.Subscribe<ObstacleHitGiraffeSignal>(OnHit);
+    }
+
+    private void OnDisable()
+    {
+        _SignalBus.Unsubscribe<ObstacleHitGiraffeSignal>(OnHit);
+    }
+
+    private void OnHit()
+    {
+        _NeckElements[_CurrentElementIndex].Deselect();
     }
 }
