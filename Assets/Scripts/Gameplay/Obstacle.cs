@@ -9,8 +9,18 @@ namespace Gameplay
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.GetComponent<GiraffeController>())
+            if (other.gameObject.CompareTag("Giraffe"))
             {
+                var root = other.gameObject.GetComponentInParent<GiraffeController>();
+                foreach (var rigidbody in root.GetComponentsInChildren<Rigidbody>())
+                {
+                    rigidbody.constraints = RigidbodyConstraints.None;
+                    rigidbody.useGravity = true;
+                }
+                foreach (var collider in root.GetComponentsInChildren<Collider>())
+                {
+                    collider.isTrigger = false;
+                }
                 Debug.Log("obstacle hit giraffe!");
                 _SignalBus.Fire(new ObstacleHitGiraffeSignal());
             }
