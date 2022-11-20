@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 3670178459455733927}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7953561202059595383
 MonoBehaviour:
@@ -686,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
 --- !u!1 &2418188250520600687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7716196928079861981, guid: bb905c39ed3dcc947be921f42819dc0d, type: 3}
@@ -858,6 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
 --- !u!1 &3264884068024488348 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1741376156960405200, guid: bb905c39ed3dcc947be921f42819dc0d, type: 3}
@@ -950,6 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
 --- !u!1 &3550929137166356892 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 298013405010835152, guid: bb905c39ed3dcc947be921f42819dc0d, type: 3}
@@ -1127,6 +1130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
 --- !u!1 &4570135128754731633 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8500035154454078147, guid: bb905c39ed3dcc947be921f42819dc0d, type: 3}
@@ -1539,6 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
 --- !u!1 &6006406218421900247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1855865669725768549, guid: bb905c39ed3dcc947be921f42819dc0d, type: 3}
@@ -2052,6 +2057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
 --- !u!1 &7371580115785882222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3231135166586208990, guid: bb905c39ed3dcc947be921f42819dc0d, type: 3}
@@ -2384,3 +2390,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8f688c7d2e42942936c211a2cd6467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _NeckSpherePrefab: {fileID: 5010303792397781109, guid: 7b34697f8ffa47b46bc691a1bbca5831, type: 3}
