@@ -12,7 +12,7 @@ namespace Gameplay
 
         [SerializeField] private Transform _center;
         [SerializeField] private List<RowConfig> _rowConfigs;
-        [SerializeField] private Spectator _spectatorPrefab;
+        [SerializeField] private List<Spectator> _spectatorPrefabs;
 
         private List<Spectator> _spectators;
 
@@ -29,7 +29,7 @@ namespace Gameplay
 
                 for (int i = 0; i < rowConfig.Count; i++)
                 {
-                    var spectator = Instantiate(_spectatorPrefab);
+                    var spectator = Instantiate(_spectatorPrefabs[Random.Range(0, _spectatorPrefabs.Count)]);
                     spectator.transform.SetParent(_center);
                     var angle = rowConfig.MinAngle + angleDelta * i;
                     angle += Random.Range(-0.2f * angleDelta, 0.2f * angleDelta);
