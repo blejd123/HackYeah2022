@@ -112,7 +112,7 @@ namespace Gameplay
                     yield return _obstacleTrack.AnimateObstacleToPit().WaitForCompletion();
                     yield return _obstacleTrack.ShowPitDoors().WaitForCompletion();
                     moveDuration += _obstacleMoveDurationChange;
-                    moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
+                    moveDuration = Mathf.Clamp(moveDuration, _minObstacleMoveDurationChange, _initialObstacleMoveDuration);
                     _obstacleTrack.DestroyObstacle();
                     yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
 
@@ -130,7 +130,7 @@ namespace Gameplay
                 else
                 {
                     moveDuration += _obstacleMoveDurationChange;
-                    moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
+                    moveDuration = Mathf.Clamp(moveDuration, _minObstacleMoveDurationChange, _initialObstacleMoveDuration);
                     _obstacleTrack.DestroyObstacle();
                     yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
                 }
