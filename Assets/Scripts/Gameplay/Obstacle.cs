@@ -25,7 +25,7 @@ namespace Gameplay
                 {
                     collider.isTrigger = false;
                 }
-                Debug.Log("obstacle hit giraffe!");
+                
                 _SignalBus.Fire(new ObstacleHitGiraffeSignal());
             }
         }

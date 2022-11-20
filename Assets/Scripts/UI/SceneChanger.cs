@@ -1,7 +1,6 @@
+using System;
 using System.Collections;
 using DG.Tweening;
-using Unity.VisualScripting;
-using UnityEditor.Sequences;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -22,6 +21,14 @@ namespace UI
             yield return _fader.FadeIn().WaitForCompletion();
             SceneManager.LoadScene(sceneName);
             yield return _fader.FadeOut().WaitForCompletion();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ChangeScene("MainMenu");
+            }
         }
     }
 }

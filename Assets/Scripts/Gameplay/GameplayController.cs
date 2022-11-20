@@ -31,6 +31,7 @@ namespace Gameplay
         [SerializeField] private List<GiraffeController> _giraffes;
 
         private bool _obstacleHit;
+        private GiraffeController _giraffeInstance;
 
         public ObstacleTrack ObstacleTrack => _obstacleTrack;
 
@@ -39,11 +40,7 @@ namespace Gameplay
         private void Start()
         {
             _audience.Initialize();
-            var giraffe = _giraffes[Random.Range(0, _giraffes.Count)];
-            var giraffeInstance = _giraffeFactory.Create(giraffe);
-            giraffeInstance.transform.SetParent(_podium.Positions[0]);
-            giraffeInstance.transform.localPosition = Vector3.zero;
-            DisableInput();
+            Initialize();
             _introTimeline.Play();
         }
 
@@ -55,6 +52,15 @@ namespace Gameplay
         private void OnDisable()
         {
             _signalBus.Unsubscribe<ObstacleHitGiraffeSignal>(OnObstacleHit);
+        }
+
+        private void Initialize()
+        {
+            var giraffe = _giraffes[Random.Range(0, _giraffes.Count)];
+            _giraffeInstance = _giraffeFactory.Create(giraffe);
+            _giraffeInstance.transform.SetParent(_podium.Positions[0]);
+            _giraffeInstance.transform.localPosition = Vector3.zero;
+            DisableInput();
         }
         
         public void StartObstaclesFlow()
@@ -105,8 +111,16 @@ namespace Gameplay
                     moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
                     _obstacleTrack.DestroyObstacle();
                     yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
+
+                    if (_giraffeInstance != null)
+                    {
+                        Destroy(_giraffeInstance.gameObject);
+                        _giraffeInstance = null;
+                    }
+                    
                     _loseTimeline.Stop();
                     _nextObstacleTimeline.Play();
+                    Initialize();
                 }
                 else
                 {
