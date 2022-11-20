@@ -62,7 +62,7 @@ namespace Gameplay
             _giraffeInstance.transform.localPosition = Vector3.zero;
             DisableInput();
         }
-        
+
         public void StartObstaclesFlow()
         {
             StartCoroutine(StartObstaclesFlowCoroutine());
@@ -99,6 +99,10 @@ namespace Gameplay
                 _obstacleTrack.SetupObstacle(obstacle);
                 _obstacleHit = false;
                 yield return _obstacleTrack.HideCurtains().WaitForCompletion();
+                if (_giraffeInstance != null)
+                {
+                    _giraffeInstance.ResetNeck();
+                }
                 EnableInput();
                 yield return _obstacleTrack.AnimateObstacle(moveDuration).WaitForCompletion();
 
@@ -108,7 +112,7 @@ namespace Gameplay
                     yield return _obstacleTrack.AnimateObstacleToPit().WaitForCompletion();
                     yield return _obstacleTrack.ShowPitDoors().WaitForCompletion();
                     moveDuration += _obstacleMoveDurationChange;
-                    moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
+                    moveDuration = Mathf.Clamp(moveDuration, _minObstacleMoveDurationChange, _initialObstacleMoveDuration);
                     _obstacleTrack.DestroyObstacle();
                     yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
 
@@ -117,7 +121,7 @@ namespace Gameplay
                         Destroy(_giraffeInstance.gameObject);
                         _giraffeInstance = null;
                     }
-                    
+
                     _loseTimeline.Stop();
                     _nextObstacleTimeline.Play();
                     yield return null;
@@ -126,13 +130,13 @@ namespace Gameplay
                 else
                 {
                     moveDuration += _obstacleMoveDurationChange;
-                    moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
+                    moveDuration = Mathf.Clamp(moveDuration, _minObstacleMoveDurationChange, _initialObstacleMoveDuration);
                     _obstacleTrack.DestroyObstacle();
-                    yield return _obstacleTrack.ShowCurtains().WaitForCompletion();   
+                    yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
                 }
             }
         }
-        
+
         private void OnObstacleHit()
         {
             _obstacleHit = true;
