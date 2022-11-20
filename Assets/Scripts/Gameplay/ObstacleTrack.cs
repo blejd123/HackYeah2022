@@ -18,12 +18,18 @@ namespace Gameplay
         [SerializeField] private Transform _inputDisableLine;
         [SerializeField] private Transform _obstacleAvoidedLine;
         [SerializeField] private Renderer _outlineRenderer;
+        [SerializeField] private Transform _leftPitDoor;
+        [SerializeField] private Transform _rightPitDoor;
+        [SerializeField] private float _pitDoorMoveDuration;
+        [SerializeField] private float _pitDoorMoveOffset;
 
         [Inject] private Obstacle.Factory _ObstacleFactory;
 
         private Obstacle _currentObstacle;
         private Vector3 _leftCurtainDefaultPosition;
         private Vector3 _rightCurtainDefaultPosition;
+        private Vector3 _leftPitDoorDefaultPosition;
+        private Vector3 _rightPitDoorDefaultPosition;
         private bool _inputDisableSend;
         private bool _obstacleAvoided;
 
@@ -31,6 +37,8 @@ namespace Gameplay
         {
             _leftCurtainDefaultPosition = _leftCurtain.transform.position;
             _rightCurtainDefaultPosition = _rightCurtain.transform.position;
+            _leftPitDoorDefaultPosition = _leftPitDoor.transform.position;
+            _rightPitDoorDefaultPosition = _rightPitDoor.transform.position;
         }
 
         public void InitCurtains()
@@ -38,6 +46,12 @@ namespace Gameplay
             _leftCurtain.position = _leftCurtainDefaultPosition;
             _rightCurtain.position = _rightCurtainDefaultPosition;
             _outlineRenderer.gameObject.SetActive(false);
+        }
+        
+        public void InitPitDoors()
+        {
+            _leftPitDoor.position = _leftPitDoorDefaultPosition;
+            _rightPitDoor.position = _rightPitDoorDefaultPosition;
         }
 
         public Tween ShowCurtains()
@@ -56,6 +70,22 @@ namespace Gameplay
             return sequence;
         }
 
+        public Tween ShowPitDoors()
+        {
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(_leftPitDoor.DOMoveX(_leftPitDoorDefaultPosition.x, _pitDoorMoveDuration));
+            sequence.Join(_rightPitDoor.DOMoveX(_rightPitDoorDefaultPosition.x, _pitDoorMoveDuration));
+            return sequence;
+        }
+
+        public Tween HidePitDoors()
+        {
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(_leftPitDoor.DOMoveX(_leftPitDoorDefaultPosition.x - _pitDoorMoveOffset, _pitDoorMoveDuration));
+            sequence.Join(_rightPitDoor.DOMoveX(_rightPitDoorDefaultPosition.x + _pitDoorMoveOffset, _pitDoorMoveDuration));
+            return sequence;
+        }
+        
         public void SetupObstacle(Obstacle obstaclePrefab)
         {
             _currentObstacle = _ObstacleFactory.Create(obstaclePrefab);

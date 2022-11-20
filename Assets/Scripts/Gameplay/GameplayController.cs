@@ -77,6 +77,7 @@ namespace Gameplay
         private IEnumerator StartObstaclesFlowCoroutine()
         {
             _obstacleTrack.InitCurtains();
+            _obstacleTrack.InitPitDoors();
 
             var moveDuration = _initialObstacleMoveDuration;
 
@@ -98,6 +99,7 @@ namespace Gameplay
         {
             _introTimeline.Stop();
             _loseTimeline.Play();
+            _obstacleTrack.HidePitDoors();
         }
     }
 }
