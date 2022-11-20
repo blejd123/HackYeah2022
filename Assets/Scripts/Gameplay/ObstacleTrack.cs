@@ -123,13 +123,18 @@ namespace Gameplay
                 _gameplayController.DisableInput();
                 _outlineRenderer.gameObject.SetActive(false);
             }
-            
-            if (_obstacleAvoided == false && pos <= _obstacleAvoidedLine.position.z)
+
+            if (_gameplayController.ObstacleHit == false && _obstacleAvoided == false && pos <= _obstacleAvoidedLine.position.z)
             {
                 _obstacleAvoided = true;
                 _gameplayController.ObstacleAvoided();
                 _outlineRenderer.gameObject.SetActive(false);
-            }
+            }    
+        }
+
+        public Tween AnimateObstacleToPit()
+        {
+            return _currentObstacle.transform.DOMove(_currentObstacle.transform.position + Vector3.down * 15.0f, 1.0f).SetEase(Ease.InQuad);
         }
     }
 }

@@ -30,6 +30,12 @@ namespace Gameplay
         [SerializeField] private List<Obstacle> _obstacles;
         [SerializeField] private List<GiraffeController> _giraffes;
 
+        private bool _obstacleHit;
+
+        public ObstacleTrack ObstacleTrack => _obstacleTrack;
+
+        public bool ObstacleHit => _obstacleHit;
+
         private void Start()
         {
             _audience.Initialize();
@@ -85,21 +91,39 @@ namespace Gameplay
             {
                 var obstacle = _obstacles[Random.Range(0, _obstacles.Count)];
                 _obstacleTrack.SetupObstacle(obstacle);
+                _obstacleHit = false;
                 yield return _obstacleTrack.HideCurtains().WaitForCompletion();
                 EnableInput();
                 yield return _obstacleTrack.AnimateObstacle(moveDuration).WaitForCompletion();
-                moveDuration += _obstacleMoveDurationChange;
-                moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
-                _obstacleTrack.DestroyObstacle();
-                yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
+
+                if (_obstacleHit)
+                {
+                    yield return _obstacleTrack.HidePitDoors().WaitForCompletion();
+                    yield return _obstacleTrack.AnimateObstacleToPit().WaitForCompletion();
+                    yield return _obstacleTrack.ShowPitDoors().WaitForCompletion();
+                    moveDuration += _obstacleMoveDurationChange;
+                    moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
+                    _obstacleTrack.DestroyObstacle();
+                    yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
+                    _loseTimeline.Stop();
+                    _nextObstacleTimeline.Play();
+                }
+                else
+                {
+                    moveDuration += _obstacleMoveDurationChange;
+                    moveDuration = Mathf.Clamp(moveDuration, _initialObstacleMoveDuration, _minObstacleMoveDurationChange);
+                    _obstacleTrack.DestroyObstacle();
+                    yield return _obstacleTrack.ShowCurtains().WaitForCompletion();   
+                }
             }
         }
         
         private void OnObstacleHit()
         {
+            _obstacleHit = true;
             _introTimeline.Stop();
+            _nextObstacleTimeline.Stop();
             _loseTimeline.Play();
-            _obstacleTrack.HidePitDoors();
         }
     }
 }
