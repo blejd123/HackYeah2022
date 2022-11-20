@@ -306,7 +306,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &8367090536171852503
 CharacterJoint:
@@ -386,7 +386,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &7043145213408931699
 CharacterJoint:
@@ -546,7 +546,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &8268965382940453605
 CharacterJoint:
@@ -626,7 +626,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &4552386586294693107
 CharacterJoint:
@@ -719,7 +719,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &5601205192239744889
 CharacterJoint:
@@ -799,7 +799,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &4140750500813956856
 CharacterJoint:
@@ -879,7 +879,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &6953321495511099130
 CharacterJoint:
@@ -959,7 +959,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &3021236424232408620
 CharacterJoint:
@@ -1039,7 +1039,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &3823017668893943669
 CharacterJoint:
@@ -1119,7 +1119,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &5150383480878789659
 CharacterJoint:
@@ -1217,7 +1217,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &8849861707019435970
 CharacterJoint:
@@ -1310,7 +1310,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &3690140362327136807
 CharacterJoint:
@@ -1390,7 +1390,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &4850105828689292995
 CharacterJoint:
@@ -1470,7 +1470,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &6413972255597513117
 CharacterJoint:
@@ -1550,7 +1550,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &1615578494739941175
 CharacterJoint:
@@ -1643,7 +1643,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &5152996661774846307
 CharacterJoint:
@@ -1723,7 +1723,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &199238329934732850
 CharacterJoint:
@@ -1803,7 +1803,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &3252588102648441430
 CharacterJoint:
@@ -1883,7 +1883,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &4548812076185911238
 CharacterJoint:
@@ -1976,7 +1976,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &3518028563797497600
 CharacterJoint:
@@ -2056,7 +2056,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &5764177198142289580
 CharacterJoint:
@@ -2136,7 +2136,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &4589964831117367552
 CharacterJoint:
@@ -2229,7 +2229,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &8325671385722452293
 CharacterJoint:
@@ -2322,7 +2322,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.01
+  m_Radius: 0.007
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!144 &4897786377863693323
 CharacterJoint:
