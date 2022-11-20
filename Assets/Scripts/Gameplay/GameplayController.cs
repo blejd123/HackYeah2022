@@ -127,6 +127,7 @@ namespace Gameplay
                         _giraffeInstance = null;
                     }
 
+                    _introTimeline.Stop();
                     _loseTimeline.Stop();
                     _nextObstacleTimeline.Play();
                     yield return null;
