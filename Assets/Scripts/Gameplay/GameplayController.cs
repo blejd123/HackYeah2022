@@ -120,6 +120,7 @@ namespace Gameplay
                     
                     _loseTimeline.Stop();
                     _nextObstacleTimeline.Play();
+                    yield return null;
                     Initialize();
                 }
                 else
