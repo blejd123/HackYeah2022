@@ -15,6 +15,6 @@ public class Spectator : MonoBehaviour
 
     public void Jump()
     {
-        _animationRoot.DOLocalJump(_animationRoot.position, 0.5f, Random.Range(1, 3), 1.0f).SetDelay(Random.Range(0.0f, 0.15f));
+        _animationRoot.DOLocalJump(Vector3.zero, 1.0f, Random.Range(2, 4), 1.5f).SetDelay(Random.Range(0.0f, 0.15f));
     }
 }

@@ -16,12 +16,15 @@ namespace Gameplay
         [SerializeField] private float _curtainMoveDuration;
         [SerializeField] private float _curtainMoveOffset;
         [SerializeField] private Transform _inputDisableLine;
+        [SerializeField] private Transform _obstacleAvoidedLine;
 
         [Inject] private Obstacle.Factory _ObstacleFactory;
 
         private Obstacle _currentObstacle;
         private Vector3 _leftCurtainDefaultPosition;
         private Vector3 _rightCurtainDefaultPosition;
+        private bool _inputDisableSend;
+        private bool _obstacleAvoided;
 
         private void Awake()
         {
@@ -55,6 +58,8 @@ namespace Gameplay
         {
             _currentObstacle = _ObstacleFactory.Create(obstaclePrefab);
             _currentObstacle.transform.position = _start.position;
+            _inputDisableSend = false;
+            _obstacleAvoided = false;
         }
 
         public void DestroyObstacle()
@@ -73,9 +78,18 @@ namespace Gameplay
 
         private void CheckObstaclePosition()
         {
-            if (_currentObstacle.transform.position.z <= _inputDisableLine.position.z)
+            var pos = _currentObstacle.transform.position.z;
+            
+            if (_inputDisableSend == false && pos <= _inputDisableLine.position.z)
             {
+                _inputDisableSend = true;
                 _gameplayController.DisableInput();
+            }
+            
+            if (_obstacleAvoided == false && pos <= _obstacleAvoidedLine.position.z)
+            {
+                _obstacleAvoided = true;
+                _gameplayController.ObstacleAvoided();
             }
         }
     }

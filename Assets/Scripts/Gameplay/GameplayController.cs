@@ -62,6 +62,11 @@ namespace Gameplay
             }
         }
 
+        public void ObstacleAvoided()
+        {
+            _audience.Jump();
+        }
+        
         private IEnumerator StartObstaclesFlowCoroutine()
         {
             _obstacleTrack.InitCurtains();

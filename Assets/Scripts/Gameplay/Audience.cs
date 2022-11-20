@@ -45,6 +45,14 @@ namespace Gameplay
             }
         }
 
+        public void Jump()
+        {
+            foreach (var spectator in _spectators)
+            {
+                spectator.Jump();
+            }
+        }
+        
         [Serializable]
         public class RowConfig
         {
