@@ -7,6 +7,10 @@ namespace Gameplay
     {
         [Inject] private SignalBus _SignalBus;
 
+        [SerializeField] private Texture2D _outline;
+
+        public Texture2D Outline => _outline;
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Giraffe"))

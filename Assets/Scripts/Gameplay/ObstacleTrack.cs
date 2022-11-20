@@ -17,6 +17,7 @@ namespace Gameplay
         [SerializeField] private float _curtainMoveOffset;
         [SerializeField] private Transform _inputDisableLine;
         [SerializeField] private Transform _obstacleAvoidedLine;
+        [SerializeField] private Renderer _outlineRenderer;
 
         [Inject] private Obstacle.Factory _ObstacleFactory;
 
@@ -36,6 +37,7 @@ namespace Gameplay
         {
             _leftCurtain.position = _leftCurtainDefaultPosition;
             _rightCurtain.position = _rightCurtainDefaultPosition;
+            _outlineRenderer.gameObject.SetActive(false);
         }
 
         public Tween ShowCurtains()
@@ -60,6 +62,9 @@ namespace Gameplay
             _currentObstacle.transform.position = _start.position;
             _inputDisableSend = false;
             _obstacleAvoided = false;
+
+            _outlineRenderer.gameObject.SetActive(false);
+            _outlineRenderer.sharedMaterial.mainTexture = _currentObstacle.Outline;
         }
 
         public void DestroyObstacle()
@@ -68,11 +73,13 @@ namespace Gameplay
             {
                 Destroy(_currentObstacle.gameObject);
                 _currentObstacle = null;
+                _outlineRenderer.gameObject.SetActive(false);
             }
         }
 
         public Tween AnimateObstacle(float duration)
         {
+            _outlineRenderer.gameObject.SetActive(true);
             return _currentObstacle.transform.DOMove(_end.position, duration).SetEase(Ease.Linear).OnUpdate(CheckObstaclePosition);
         }
 
@@ -84,12 +91,14 @@ namespace Gameplay
             {
                 _inputDisableSend = true;
                 _gameplayController.DisableInput();
+                _outlineRenderer.gameObject.SetActive(false);
             }
             
             if (_obstacleAvoided == false && pos <= _obstacleAvoidedLine.position.z)
             {
                 _obstacleAvoided = true;
                 _gameplayController.ObstacleAvoided();
+                _outlineRenderer.gameObject.SetActive(false);
             }
         }
     }
