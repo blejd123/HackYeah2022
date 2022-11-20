@@ -41,8 +41,14 @@ namespace Audio
                 }
 
                 audioSource.clip = audioClip;
+
+                if (audioSource.clip == null)
+                {
+                    yield break;
+                }
+                
                 audioSource.Play();
-                yield return audioSource.DOFade(1.0f, 0.25f).WaitForCompletion();
+                yield return audioSource.DOFade(0.34f, 0.25f).WaitForCompletion();
             }
         }
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using DG.Tweening;
 using ModestTree;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace Gameplay
         [Inject] private readonly GiraffeController.Factory _giraffeFactory;
         [Inject] private readonly Audience _audience;
         [Inject] private readonly SignalBus _signalBus;
+        [Inject] private readonly SoundController _soundController;
 
         [SerializeField] private float _initialObstacleMoveDuration;
         [SerializeField] private float _obstacleMoveDurationChange;
@@ -29,6 +31,8 @@ namespace Gameplay
         [SerializeField] private PlayableDirector _loseTimeline;
         [SerializeField] private List<Obstacle> _obstacles;
         [SerializeField] private List<GiraffeController> _giraffes;
+        [SerializeField] private AudioClip _music;
+        [SerializeField] private List<AudioClip> _casterSounds;
 
         private bool _obstacleHit;
         private GiraffeController _giraffeInstance;
@@ -39,6 +43,7 @@ namespace Gameplay
 
         private void Start()
         {
+            _soundController.PlayMusic(null, true);
             _audience.Initialize();
             Initialize();
             _introTimeline.Play();
@@ -143,6 +148,38 @@ namespace Gameplay
             _introTimeline.Stop();
             _nextObstacleTimeline.Stop();
             _loseTimeline.Play();
+        }
+
+        public void PlayCasterSounds()
+        {
+            StartCoroutine(PlayCasterSoundsCorutine());
+        }
+
+        private IEnumerator PlayCasterSoundsCorutine()
+        {
+            var usedSounds = new List<AudioClip>();
+            
+            for (int i = 0; i < 1; i++)
+            {
+                while (true)
+                {
+                    var r = _casterSounds[Random.Range(0, _casterSounds.Count)];
+                    if (!usedSounds.Contains(r))
+                    {
+                        usedSounds.Add(r);
+                        _soundController.PlaySound(r);
+                        yield return new WaitForSeconds(r.length);
+                        break;
+                    }
+                }
+            }
+            
+            PlayMusic();
+        }
+
+        private void PlayMusic()
+        {
+            _soundController.PlayMusic(_music, true);
         }
     }
 }
