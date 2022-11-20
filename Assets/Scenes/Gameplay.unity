@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5187056, g: 0.40850604, b: 0.424981, a: 1}
+  m_IndirectSpecularColor: {r: 0.5187056, g: 0.408506, b: 0.4249811, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2263,14 +2263,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364825097}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.56, z: -10.77}
-  m_LocalScale: {x: 14.04, y: 11.9, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 2.35, z: -10.77}
+  m_LocalScale: {x: 21.5, y: 11.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 777589557}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!64 &1364825099
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2371,7 +2371,16 @@ MonoBehaviour:
   _nextObstacleTimeline: {fileID: 141842092}
   _loseTimeline: {fileID: 1428382936}
   _obstacles:
-  - {fileID: 4250138501571412080, guid: 5c2ead8354b6a0e48815fd2624bf38bb, type: 3}
+  - {fileID: 4250138501571412080, guid: 0cb25319ad8939d48a1d19cf5e413a69, type: 3}
+  - {fileID: 4250138501571412080, guid: 4b945a81fc1019c40855059b8c11c347, type: 3}
+  - {fileID: 4250138501571412080, guid: 6bfe3104e5d7803478fc4d7c53823411, type: 3}
+  - {fileID: 4250138501571412080, guid: 8fe4efef822b27b4eb49bfa306d6e7a7, type: 3}
+  - {fileID: 4250138501571412080, guid: f095094ac9da9ad4b8d95fcda772cb7f, type: 3}
+  - {fileID: 4250138501571412080, guid: 95fa8f0314672f3488e48d98772a7881, type: 3}
+  - {fileID: 4250138501571412080, guid: 764c6b4197ec5514cb26244235a44f75, type: 3}
+  - {fileID: 4250138501571412080, guid: e42f695a3f50f184f946d2419a8e20dd, type: 3}
+  - {fileID: 4250138501571412080, guid: 54cbd80826629be46ab6ca37eb03027c, type: 3}
+  - {fileID: 4250138501571412080, guid: 3ddacc70b0e521f49b7ba79a1a50d981, type: 3}
   _giraffes:
   - {fileID: 7953561202059595376, guid: c42789e9e74e256409c76413d203c38e, type: 3}
   - {fileID: 7953561202059595376, guid: dd1b78fef76ccb0409887a25d6d502cd, type: 3}
@@ -3661,15 +3670,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2513238432937635357, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1280455
+      value: 0.12804553
       objectReference: {fileID: 0}
     - target: {fileID: 2513238432937635357, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.026247961
+      value: 0.02624793
       objectReference: {fileID: 0}
     - target: {fileID: 2513238432937635357, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0033900363
+      value: -0.0033900328
       objectReference: {fileID: 0}
     - target: {fileID: 3087993510993510712, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalPosition.x
