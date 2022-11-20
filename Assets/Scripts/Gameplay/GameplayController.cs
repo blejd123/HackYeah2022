@@ -33,6 +33,10 @@ namespace Gameplay
         private void Start()
         {
             _audience.Initialize();
+            var giraffe = _giraffes[Random.Range(0, _giraffes.Count)];
+            var giraffeInstance = _giraffeFactory.Create(giraffe);
+            giraffeInstance.transform.SetParent(_podium.Positions[0]);
+            giraffeInstance.transform.localPosition = Vector3.zero;
             DisableInput();
             _introTimeline.Play();
         }
@@ -47,14 +51,6 @@ namespace Gameplay
             _signalBus.Unsubscribe<ObstacleHitGiraffeSignal>(OnObstacleHit);
         }
         
-        private void Update()
-        {
-            if (Keyboard.current.f2Key.wasPressedThisFrame)
-            {
-                AddGiraffe();
-            }
-        }
-
         public void StartObstaclesFlow()
         {
             StartCoroutine(StartObstaclesFlowCoroutine());
@@ -77,7 +73,7 @@ namespace Gameplay
         {
             _audience.Jump();
         }
-        
+
         private IEnumerator StartObstaclesFlowCoroutine()
         {
             _obstacleTrack.InitCurtains();
@@ -97,13 +93,7 @@ namespace Gameplay
                 yield return _obstacleTrack.ShowCurtains().WaitForCompletion();
             }
         }
-
-        private void AddGiraffe()
-        {
-            var giraffe = _giraffes[Random.Range(0, _giraffes.Count)];
-            _giraffeFactory.Create(giraffe);
-        }
-
+        
         private void OnObstacleHit()
         {
             _introTimeline.Stop();
