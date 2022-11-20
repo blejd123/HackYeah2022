@@ -16,7 +16,7 @@ namespace Gameplay
 
         private List<Spectator> _spectators;
 
-        private void Awake()
+        public void Initialize()
         {
             _spectators = new List<Spectator>();
 

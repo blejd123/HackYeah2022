@@ -18,6 +18,7 @@ namespace Gameplay
         [Inject] private readonly ObstacleTrack _obstacleTrack;
         [Inject] private readonly InputController _inputController;
         [Inject] private readonly GiraffeController.Factory _giraffeFactory;
+        [Inject] private readonly Audience _audience;
 
         [SerializeField] private float _initialObstacleMoveDuration;
         [SerializeField] private float _obstacleMoveDurationChange;
@@ -30,6 +31,7 @@ namespace Gameplay
 
         private void Start()
         {
+            _audience.Initialize();
             DisableInput();
             _introTimeline.Play();
         }

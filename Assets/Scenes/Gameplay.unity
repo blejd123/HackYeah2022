@@ -553,7 +553,7 @@ MonoBehaviour:
   _cameraController: {fileID: 3087993511909518413}
   _podium: {fileID: 933361638}
   _obstacleTrack: {fileID: 777589558}
-  _audience: {fileID: 0}
+  _audience: {fileID: 276524610}
   _InputController: {fileID: 1748136280}
 --- !u!4 &396406004
 Transform:
@@ -3835,11 +3835,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2513238432937635357, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.02624794
+      value: 0.02624792
       objectReference: {fileID: 0}
     - target: {fileID: 2513238432937635357, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0033900337
+      value: -0.003390031
       objectReference: {fileID: 0}
     - target: {fileID: 3087993510993510712, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3891,11 +3891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715411833850358565, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.76147115
+      value: 0.7614712
       objectReference: {fileID: 0}
     - target: {fileID: 3715411833850358565, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14465639
+      value: 0.1446564
       objectReference: {fileID: 0}
     - target: {fileID: 3715411833850358565, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3903,7 +3903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3715411833850358565, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11792359
+      value: -0.1179236
       objectReference: {fileID: 0}
     - target: {fileID: 3715411833850358565, guid: 36b5ba42999e10243a347daf3280f316, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
